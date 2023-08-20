@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             btnUpdate = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtDescription = new TextBox();
+            txtCategoryName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             SuspendLayout();
@@ -43,21 +43,22 @@
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // textBox2
+            // txtDescription
             // 
-            textBox2.Location = new Point(133, 48);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 100);
-            textBox2.TabIndex = 8;
+            txtDescription.Location = new Point(133, 48);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(200, 100);
+            txtDescription.TabIndex = 8;
             // 
-            // textBox1
+            // txtCategoryName
             // 
-            textBox1.Location = new Point(133, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 27);
-            textBox1.TabIndex = 7;
+            txtCategoryName.Location = new Point(133, 12);
+            txtCategoryName.Name = "txtCategoryName";
+            txtCategoryName.Size = new Size(200, 27);
+            txtCategoryName.TabIndex = 7;
             // 
             // label2
             // 
@@ -83,12 +84,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnUpdate);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtDescription);
+            Controls.Add(txtCategoryName);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "CategoryUpdateForm";
             Text = "CategoryUpdateForm";
+            Load += CategoryUpdateForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,8 +98,8 @@
         #endregion
 
         private Button btnUpdate;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtDescription;
+        private TextBox txtCategoryName;
         private Label label2;
         private Label label1;
     }

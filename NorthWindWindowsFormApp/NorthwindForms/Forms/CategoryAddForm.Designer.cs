@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtCategoryName = new TextBox();
+            txtDescription = new TextBox();
             btnAdd = new Button();
             SuspendLayout();
             // 
@@ -53,20 +53,20 @@
             label2.TabIndex = 1;
             label2.Text = "Description:";
             // 
-            // textBox1
+            // txtCategoryName
             // 
-            textBox1.Location = new Point(134, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 27);
-            textBox1.TabIndex = 2;
+            txtCategoryName.Location = new Point(134, 6);
+            txtCategoryName.Name = "txtCategoryName";
+            txtCategoryName.Size = new Size(200, 27);
+            txtCategoryName.TabIndex = 2;
             // 
-            // textBox2
+            // txtDescription
             // 
-            textBox2.Location = new Point(134, 42);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 100);
-            textBox2.TabIndex = 3;
+            txtDescription.Location = new Point(134, 42);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(200, 100);
+            txtDescription.TabIndex = 3;
             // 
             // btnAdd
             // 
@@ -84,8 +84,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAdd);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtDescription);
+            Controls.Add(txtCategoryName);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "CategoryAddForm";
@@ -98,8 +98,8 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtCategoryName;
+        private TextBox txtDescription;
         private Button btnAdd;
     }
 }
