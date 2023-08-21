@@ -53,8 +53,19 @@ namespace NorthwindForms.Forms
         {
             var category = (Category)dataGridCategory.SelectedRows[0].DataBoundItem;
 
-            _categoryRepository.Remove(category);
-            LoadCategories();
+            DialogResult dialogResult = MessageBox.Show("Do You Want To Remove this Line"
+                                                        ,"Warning"
+                                                        ,MessageBoxButtons.YesNo);;
+            if(dialogResult == DialogResult.Yes)
+            {
+                _categoryRepository.Remove(category);
+                LoadCategories();
+                MessageBox.Show("Successfully Removed");
+            }
+            else if(dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("Cancelled Remove");
+            }
         }
     }
 }

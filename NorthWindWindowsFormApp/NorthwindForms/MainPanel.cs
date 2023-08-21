@@ -1,3 +1,4 @@
+using Northwind.Forms.Forms;
 using NorthwindForms.Forms;
 
 namespace NorthwindForms
@@ -26,6 +27,20 @@ namespace NorthwindForms
             var categoryListForm = new CategoryListForm();
             categoryListForm.MdiParent = this;
             categoryListForm.Show();
+        }
+
+        private void newShipperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var shipperAddForm = new ShipperAddForm();
+            shipperAddForm.MdiParent = this;
+            shipperAddForm.Show();
+        }
+
+        private void shipperListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var shipperListForm = new ShipperListForm();
+            shipperListForm.MdiParent= this;
+            shipperListForm.Show();
         }
     }
 }

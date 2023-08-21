@@ -23,5 +23,19 @@ set CategoryName = @CategoryName,
 where CategoryID = @CategoryID
 ";
         internal const string removeCategory = "delete Categories where CategoryID = @CategoryID";
+        internal const string getAllShippers = "select * from Shippers";
+        internal const string findSingleShipper = "select * from Shippers where ShipperID = @ShipperID";
+        internal const string addShipper = @"
+insert into Shippers
+(CompanyName,Phone)
+values
+(@CompanyName,@Phone)";
+        internal const string updateShipper = @"
+update Shippers
+set CompanyName = @CompanyName,
+    Phone = @Phone
+where ShipperID = @ShipperID
+";
+        internal const string removeShipper = "delete Shippers where ShipperID = @ShipperID";
     }
 }
