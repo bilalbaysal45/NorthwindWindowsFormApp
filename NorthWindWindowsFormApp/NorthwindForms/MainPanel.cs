@@ -39,8 +39,22 @@ namespace NorthwindForms
         private void shipperListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var shipperListForm = new ShipperListForm();
-            shipperListForm.MdiParent= this;
+            shipperListForm.MdiParent = this;
             shipperListForm.Show();
+        }
+
+        private void supplierListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var supplierListForm = new SupplierListForm();
+            supplierListForm.MdiParent = this;
+            supplierListForm.Show();
+        }
+
+        private void newSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var supplierAddForm = new SupplierAddForm();
+            supplierAddForm.MdiParent = this;
+            supplierAddForm.Show();
         }
     }
 }

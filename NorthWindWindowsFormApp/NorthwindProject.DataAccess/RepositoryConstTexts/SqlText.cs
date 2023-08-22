@@ -37,5 +37,31 @@ set CompanyName = @CompanyName,
 where ShipperID = @ShipperID
 ";
         internal const string removeShipper = "delete Shippers where ShipperID = @ShipperID";
+        internal const string getAllSuppliers = "select * from Suppliers";
+        internal const string addSupplier = @"
+insert into Suppliers (
+         CompanyName ,
+         ContactName ,
+         ContactTitle ,
+         Address ,
+         City ,
+         Region, 
+         PostalCode, 
+         Country ,
+         Phone ,
+         Fax
+)
+values (
+        @CompanyName ,
+        @ContactName ,
+        @ContactTitle ,
+        @Address ,
+        @City ,
+        @Region, 
+        @PostalCode, 
+        @Country ,
+        @Phone ,
+        @Fax 
+)";
     }
 }
