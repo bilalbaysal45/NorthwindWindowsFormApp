@@ -38,6 +38,7 @@ where ShipperID = @ShipperID
 ";
         internal const string removeShipper = "delete Shippers where ShipperID = @ShipperID";
         internal const string getAllSuppliers = "select * from Suppliers";
+        internal const string findSingleSupplier = "select * from Suppliers where SupplierID = @SupplierID";
         internal const string addSupplier = @"
 insert into Suppliers (
          CompanyName ,
@@ -63,5 +64,20 @@ values (
         @Phone ,
         @Fax 
 )";
+        internal const string updateSupplier = @"
+update Suppliers
+set      CompanyName = @CompanyName,
+         ContactName = @ContactName,
+         ContactTitle = @ContactTitle,
+         Address = @Address,
+         City = @City,
+         Region = @Region,
+         PostalCode = @PostalCode,
+         Country = @Country,
+         Phone = @Phone,
+         Fax = @Fax
+where SupplierID = @SupplierID
+";
+        internal const string removeSupplier = "delete Suppliers where SupplierID = @SupplierID";
     }
 }

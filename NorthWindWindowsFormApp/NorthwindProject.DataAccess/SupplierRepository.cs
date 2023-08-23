@@ -29,7 +29,23 @@ namespace NorthwindProject.DataAccess
                 return new List<Supplier>();
             }
         }
-        public Supplier Find(int id) { return null; }
+        public Supplier Find(int supplierID) 
+        {
+            try
+            {
+                using (var conn = new SqlConnection(SqlText.ConnectionString))
+                {
+                    var supplier = conn.QuerySingleOrDefault<Supplier>(SqlText.findSingleSupplier, new { supplierID });
+                    
+                    return supplier != null ? supplier : null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                return null;
+            }
+        }
         public bool Add(Supplier supplier)
         {
             try
@@ -47,7 +63,37 @@ namespace NorthwindProject.DataAccess
                 return false;
             }
         }
-        public bool Update(Supplier supplier) { return false; }
-        public bool Remove(Supplier supplier) { return false; }
+        public bool Update(Supplier supplier) 
+        {
+            try
+            {
+                using (var conn = new SqlConnection(SqlText.ConnectionString))
+                {
+                    var result = conn.Execute(SqlText.updateSupplier,supplier);
+                    return result > 0 ? true : false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                return false;
+            }
+        }
+        public bool Remove(Supplier supplier) 
+        {
+            try
+            {
+                using (var conn = new SqlConnection(SqlText.ConnectionString))
+                {
+                    var result = conn.Execute(SqlText.removeSupplier,supplier);
+                    return result > 0 ? true : false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                return false;
+            }
+        }
     }
 }
