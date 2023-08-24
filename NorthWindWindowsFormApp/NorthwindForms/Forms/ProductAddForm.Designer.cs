@@ -36,7 +36,7 @@
             txtUnitsInStock = new MaskedTextBox();
             numUnitprice = new NumericUpDown();
             cmbSuppliers = new ComboBox();
-            cmbCategoryName = new ComboBox();
+            cmbCategories = new ComboBox();
             txtProductName = new TextBox();
             label10 = new Label();
             label9 = new Label();
@@ -65,6 +65,7 @@
             btnProductSave.TabIndex = 77;
             btnProductSave.Text = "Save";
             btnProductSave.UseVisualStyleBackColor = true;
+            btnProductSave.Click += btnProductSave_Click;
             // 
             // chkActive
             // 
@@ -118,13 +119,13 @@
             cmbSuppliers.Size = new Size(165, 28);
             cmbSuppliers.TabIndex = 71;
             // 
-            // cmbCategoryName
+            // cmbCategories
             // 
-            cmbCategoryName.FormattingEnabled = true;
-            cmbCategoryName.Location = new Point(135, 51);
-            cmbCategoryName.Name = "cmbCategoryName";
-            cmbCategoryName.Size = new Size(165, 28);
-            cmbCategoryName.TabIndex = 70;
+            cmbCategories.FormattingEnabled = true;
+            cmbCategories.Location = new Point(135, 51);
+            cmbCategories.Name = "cmbCategories";
+            cmbCategories.Size = new Size(165, 28);
+            cmbCategories.TabIndex = 70;
             // 
             // txtProductName
             // 
@@ -227,7 +228,7 @@
             Controls.Add(txtUnitsInStock);
             Controls.Add(numUnitprice);
             Controls.Add(cmbSuppliers);
-            Controls.Add(cmbCategoryName);
+            Controls.Add(cmbCategories);
             Controls.Add(txtProductName);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -240,6 +241,7 @@
             Controls.Add(label2);
             Name = "ProductAddForm";
             Text = "ProductAddForm";
+            Load += ProductAddForm_Load;
             ((System.ComponentModel.ISupportInitialize)numUnitprice).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -255,7 +257,7 @@
         private MaskedTextBox txtUnitsInStock;
         private NumericUpDown numUnitprice;
         private ComboBox cmbSuppliers;
-        private ComboBox cmbCategoryName;
+        private ComboBox cmbCategories;
         private TextBox txtProductName;
         private Label label10;
         private Label label9;

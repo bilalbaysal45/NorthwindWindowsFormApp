@@ -79,5 +79,44 @@ set      CompanyName = @CompanyName,
 where SupplierID = @SupplierID
 ";
         internal const string removeSupplier = "delete Suppliers where SupplierID = @SupplierID";
+        internal const string getAllProducts = "select * from Products";
+        internal const string findSingleProduct = "select * from Products where ProductID = @ProductID";
+        internal const string addProduct = @"
+insert into Products (
+        ProductName ,
+        CategoryID ,
+        SupplierID ,
+        UnitPrice ,
+        QuantityPerUnit ,
+        UnitsInStock ,
+        UnitsOnOrder ,
+        ReorderLevel ,
+        Discontinued
+)
+values (
+        @ProductName, 
+        @CategoryID,
+        @SupplierID,
+        @UnitPrice,
+        @QuantityPerUnit,
+        @UnitsInStock,
+        @UnitsOnOrder,
+        @ReorderLevel,
+        @Discontinued
+)";
+        internal const string updateProduct = @"
+update products
+set     ProductName = @ProductName, 
+        CategoryID = @CategoryID,
+        SupplierID = @SupplierID,
+        UnitPrice = @UnitPrice,
+        QuantityPerUnit = @QuantityPerUnit,
+        UnitsInStock  = @UnitsInStock,
+        UnitsOnOrder = @UnitsOnOrder,
+        ReorderLevel  = @ReorderLevel,
+        Discontinued  = @Discontinued
+where ProductID = @ProductID
+";
+        internal const string removeProduct = "delete Products where ProductID = @ProductID";
     }
 }

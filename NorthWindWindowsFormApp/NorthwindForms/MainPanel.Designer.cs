@@ -38,16 +38,19 @@
             supplierManagementToolStripMenuItem = new ToolStripMenuItem();
             newSupplierToolStripMenuItem = new ToolStripMenuItem();
             supplierListToolStripMenuItem = new ToolStripMenuItem();
+            productManagementToolStripMenuItem = new ToolStripMenuItem();
+            newProductToolStripMenuItem = new ToolStripMenuItem();
+            productListToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { categoryManagementToolStripMenuItem, shipperManagementToolStripMenuItem, supplierManagementToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { categoryManagementToolStripMenuItem, shipperManagementToolStripMenuItem, supplierManagementToolStripMenuItem, productManagementToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(1168, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -103,22 +106,43 @@
             // newSupplierToolStripMenuItem
             // 
             newSupplierToolStripMenuItem.Name = "newSupplierToolStripMenuItem";
-            newSupplierToolStripMenuItem.Size = new Size(224, 26);
+            newSupplierToolStripMenuItem.Size = new Size(181, 26);
             newSupplierToolStripMenuItem.Text = "New Supplier";
             newSupplierToolStripMenuItem.Click += newSupplierToolStripMenuItem_Click;
             // 
             // supplierListToolStripMenuItem
             // 
             supplierListToolStripMenuItem.Name = "supplierListToolStripMenuItem";
-            supplierListToolStripMenuItem.Size = new Size(224, 26);
+            supplierListToolStripMenuItem.Size = new Size(181, 26);
             supplierListToolStripMenuItem.Text = "Supplier List";
             supplierListToolStripMenuItem.Click += supplierListToolStripMenuItem_Click;
+            // 
+            // productManagementToolStripMenuItem
+            // 
+            productManagementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newProductToolStripMenuItem, productListToolStripMenuItem });
+            productManagementToolStripMenuItem.Name = "productManagementToolStripMenuItem";
+            productManagementToolStripMenuItem.Size = new Size(166, 24);
+            productManagementToolStripMenuItem.Text = "Product Management";
+            // 
+            // newProductToolStripMenuItem
+            // 
+            newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
+            newProductToolStripMenuItem.Size = new Size(224, 26);
+            newProductToolStripMenuItem.Text = "New Product";
+            newProductToolStripMenuItem.Click += newProductToolStripMenuItem_Click;
+            // 
+            // productListToolStripMenuItem
+            // 
+            productListToolStripMenuItem.Name = "productListToolStripMenuItem";
+            productListToolStripMenuItem.Size = new Size(224, 26);
+            productListToolStripMenuItem.Text = "Product List";
+            productListToolStripMenuItem.Click += productListToolStripMenuItem_Click;
             // 
             // MainPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1168, 450);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -143,5 +167,8 @@
         private ToolStripMenuItem supplierManagementToolStripMenuItem;
         private ToolStripMenuItem newSupplierToolStripMenuItem;
         private ToolStripMenuItem supplierListToolStripMenuItem;
+        private ToolStripMenuItem productManagementToolStripMenuItem;
+        private ToolStripMenuItem newProductToolStripMenuItem;
+        private ToolStripMenuItem productListToolStripMenuItem;
     }
 }
