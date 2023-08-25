@@ -28,7 +28,28 @@ namespace NorthwindForms.Forms
                 Description = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text,
             };
             var result = _categoryRepository.Add(category);
-            MessageBox.Show(result ? "New Category Added" : "Error!");
+            //MessageBox.Show(result ? "New Category Added" : "Error!");
+            if (result)
+            {
+                MessageBox.Show("New Category Added");
+                ReloadCategories();
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+        }
+        private void ReloadCategories()
+        {
+            foreach (var form in MdiParent.MdiChildren)
+            {
+                if (form is CategoryListForm)
+                {
+                    var categoryUpdateForm = form as CategoryListForm;
+                    categoryUpdateForm.LoadCategories();
+                }
+            }
+
         }
     }
 }

@@ -35,7 +35,27 @@ namespace Northwind.Forms.Forms
                 Phone = txtPhone.Text,
                 Fax = txtFax.Text
             };
-            _supplierRepository.Add(supplier);
+            var result = _supplierRepository.Add(supplier);
+            if (result)
+            {
+                MessageBox.Show("New Supplier is Added");
+                RefreshSuppliersList();
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+        }
+        private void RefreshSuppliersList()
+        {
+            foreach (var form in MdiParent.MdiChildren)
+            {
+                if (form is SupplierListForm)
+                {
+                    var supplierListForm = form as SupplierListForm;
+                    supplierListForm.LoadSuppliers();
+                }
+            }
         }
     }
 }
