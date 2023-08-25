@@ -16,6 +16,7 @@ namespace Northwind.Forms.Forms
     {
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
         private readonly SupplierRepository _supplierRepository = new SupplierRepository();
+        private readonly ProductRepository _productRepository = new ProductRepository();
         public ProductAddForm()
         {
             InitializeComponent();
@@ -80,8 +81,27 @@ namespace Northwind.Forms.Forms
                                                     ? reorderLevel
                                                     : null;
             product.Discontinued = !chkActive.Checked;
-
-            
+            var result = _productRepository.Add(product);
+            if (result)
+            {
+                MessageBox.Show("Successfully Added");
+                ReloadProductList();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+        private void ReloadProductList()
+        {
+            foreach (var form in MdiParent.MdiChildren)
+            {
+                if (form is ProductListForm)
+                {
+                    var productListForm = form as ProductListForm;
+                    productListForm.ReloadList();
+                }
+            }
         }
 
     }

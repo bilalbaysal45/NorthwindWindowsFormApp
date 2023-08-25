@@ -29,66 +29,70 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridView1 = new DataGridView();
+            dataGridProductList = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             updateToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProductList).BeginInit();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridProductList
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.ContextMenuStrip = contextMenuStrip1;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(800, 450);
-            dataGridView1.TabIndex = 0;
+            dataGridProductList.AllowUserToAddRows = false;
+            dataGridProductList.AllowUserToDeleteRows = false;
+            dataGridProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridProductList.Dock = DockStyle.Fill;
+            dataGridProductList.Location = new Point(0, 0);
+            dataGridProductList.MultiSelect = false;
+            dataGridProductList.Name = "dataGridProductList";
+            dataGridProductList.ReadOnly = true;
+            dataGridProductList.RowHeadersWidth = 51;
+            dataGridProductList.RowTemplate.ContextMenuStrip = contextMenuStrip1;
+            dataGridProductList.RowTemplate.Height = 29;
+            dataGridProductList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridProductList.Size = new Size(800, 450);
+            dataGridProductList.TabIndex = 0;
+            dataGridProductList.CellMouseDown += dataGridProductList_CellMouseDown;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { updateToolStripMenuItem, removeToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(133, 52);
+            contextMenuStrip1.Size = new Size(211, 80);
             // 
             // updateToolStripMenuItem
             // 
             updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            updateToolStripMenuItem.Size = new Size(132, 24);
+            updateToolStripMenuItem.Size = new Size(210, 24);
             updateToolStripMenuItem.Text = "Update";
+            updateToolStripMenuItem.Click += updateToolStripMenuItem_Click;
             // 
             // removeToolStripMenuItem
             // 
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(132, 24);
+            removeToolStripMenuItem.Size = new Size(210, 24);
             removeToolStripMenuItem.Text = "Remove";
+            removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
             // 
             // ProductListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridProductList);
             Name = "ProductListForm";
             Text = "ProductListForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += ProductListForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridProductList).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridProductList;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem updateToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem;

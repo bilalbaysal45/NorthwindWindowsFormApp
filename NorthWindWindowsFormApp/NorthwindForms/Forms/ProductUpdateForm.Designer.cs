@@ -36,7 +36,7 @@
             txtUnitsInStock = new MaskedTextBox();
             numUnitprice = new NumericUpDown();
             cmbSuppliers = new ComboBox();
-            cmbCategoryName = new ComboBox();
+            cmbCategories = new ComboBox();
             txtProductName = new TextBox();
             label10 = new Label();
             label9 = new Label();
@@ -65,6 +65,7 @@
             btnProductUpdate.TabIndex = 96;
             btnProductUpdate.Text = "Update";
             btnProductUpdate.UseVisualStyleBackColor = true;
+            btnProductUpdate.Click += btnProductUpdate_Click;
             // 
             // chkActive
             // 
@@ -118,13 +119,13 @@
             cmbSuppliers.Size = new Size(165, 28);
             cmbSuppliers.TabIndex = 90;
             // 
-            // cmbCategoryName
+            // cmbCategories
             // 
-            cmbCategoryName.FormattingEnabled = true;
-            cmbCategoryName.Location = new Point(132, 57);
-            cmbCategoryName.Name = "cmbCategoryName";
-            cmbCategoryName.Size = new Size(165, 28);
-            cmbCategoryName.TabIndex = 89;
+            cmbCategories.FormattingEnabled = true;
+            cmbCategories.Location = new Point(132, 57);
+            cmbCategories.Name = "cmbCategories";
+            cmbCategories.Size = new Size(165, 28);
+            cmbCategories.TabIndex = 89;
             // 
             // txtProductName
             // 
@@ -227,7 +228,7 @@
             Controls.Add(txtUnitsInStock);
             Controls.Add(numUnitprice);
             Controls.Add(cmbSuppliers);
-            Controls.Add(cmbCategoryName);
+            Controls.Add(cmbCategories);
             Controls.Add(txtProductName);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -240,6 +241,7 @@
             Controls.Add(label2);
             Name = "ProductUpdateForm";
             Text = "ProductUpdateForm";
+            Load += ProductUpdateForm_Load;
             ((System.ComponentModel.ISupportInitialize)numUnitprice).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -255,7 +257,7 @@
         private MaskedTextBox txtUnitsInStock;
         private NumericUpDown numUnitprice;
         private ComboBox cmbSuppliers;
-        private ComboBox cmbCategoryName;
+        private ComboBox cmbCategories;
         private TextBox txtProductName;
         private Label label10;
         private Label label9;

@@ -84,7 +84,7 @@ namespace NorthwindProject.DataAccess
             {
                 using (var conn = new SqlConnection(SqlText.ConnectionString))
                 {
-                    conn.Execute(SqlText.removeProduct, new {product.ProductId});
+                    conn.Execute(SqlText.removeProduct, new {product.ProductID});
                     return true;
                 }
             }
