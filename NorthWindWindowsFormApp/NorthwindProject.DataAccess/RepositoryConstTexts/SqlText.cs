@@ -118,5 +118,62 @@ set     ProductName = @ProductName,
 where ProductID = @ProductID
 ";
         internal const string removeProduct = "delete Products where ProductID = @ProductID";
+        internal const string getAllEmployees = "select * from Employees";
+        internal const string findSingleEmployee = "select * from Employees where EmployeeID = @EmployeeID";
+        internal const string addEmployee = @"
+insert into Employees (
+         LastName,
+         FirstName,
+         Title,
+         TitleOfCourtesy,
+         BirthDate,
+         HireDate,
+         Address,
+         City,
+         Region,
+         PostalCode,
+         Country,
+         HomePhone,
+         Extension,
+         Notes,
+         ReportsTo
+)
+values (
+         @LastName,
+         @FirstName,
+         @Title,
+         @TitleOfCourtesy,
+         @BirthDate,
+         @HireDate,
+         @Address,
+         @City,
+         @Region,
+         @PostalCode,
+         @Country,
+         @HomePhone,
+         @Extension,
+         @Notes,
+         @ReportsTo
+)";
+        internal const string updateEmployee = @"
+update Employees
+set      FirstName = @FirstName,
+         LastName = @LastName,
+         Title = @Title,
+         TitleOfCourtesy = @TitleOfCourtesy,
+         BirthDate = @BirthDate,
+         HireDate = @HireDate,
+         Address = @Address,
+         City = @City,
+         Region = @Region,
+         PostalCode = @PostalCode,
+         Country = @Country,
+         HomePhone = @HomePhone,
+         Extension = @Extension,
+         Notes = @Notes,
+         ReportsTo = @ReportsTo
+where EmployeeID = @EmployeeID
+";
+        internal const string removeEmployee = "delete Employees where EmployeeID = @EmployeeID";
     }
 }

@@ -70,5 +70,19 @@ namespace NorthwindForms
             productAddForm.MdiParent = this;
             productAddForm.Show();
         }
+
+        private void newEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var employeeAddForm = new EmployeeAddForm();
+            employeeAddForm.MdiParent = this;
+            employeeAddForm.Show();
+        }
+
+        private void employeeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var employeeListForm = new EmployeeListForm();
+            employeeListForm.MdiParent = this;
+            employeeListForm.Show();
+        }
     }
 }
