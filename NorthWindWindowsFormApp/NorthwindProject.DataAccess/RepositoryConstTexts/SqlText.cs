@@ -175,5 +175,53 @@ set      FirstName = @FirstName,
 where EmployeeID = @EmployeeID
 ";
         internal const string removeEmployee = "delete Employees where EmployeeID = @EmployeeID";
+        internal const string getAllCustomers = "select * from Customers";
+        internal const string findSingleCustomer = "select * from Customers where CustomerID = @CustomerID";
+        internal const string addCustomer = @"
+insert into Customers (
+         CustomerID,
+         CompanyName ,
+         ContactName ,
+         ContactTitle ,
+         Address ,
+         City ,
+         Region, 
+         PostalCode, 
+         Country ,
+         Phone ,
+         Fax
+)
+values (
+        @CustomerID,
+        @CompanyName ,
+        @ContactName ,
+        @ContactTitle ,
+        @Address ,
+        @City ,
+        @Region, 
+        @PostalCode, 
+        @Country ,
+        @Phone ,
+        @Fax 
+)";
+        internal const string updateCustomer = @"
+update Customers
+set      CompanyName = @CompanyName,
+         ContactName = @ContactName,
+         ContactTitle = @ContactTitle,
+         Address = @Address,
+         City = @City,
+         Region = @Region,
+         PostalCode = @PostalCode,
+         Country = @Country,
+         Phone = @Phone,
+         Fax = @Fax
+where CustomerID = @CustomerID
+";
+        internal const string removeCustomer = "delete Customers where CustomerID = @CustomerID";
+
+
+
+
     }
 }
