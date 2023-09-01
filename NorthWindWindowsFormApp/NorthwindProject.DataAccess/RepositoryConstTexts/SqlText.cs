@@ -219,9 +219,51 @@ set      CompanyName = @CompanyName,
 where CustomerID = @CustomerID
 ";
         internal const string removeCustomer = "delete Customers where CustomerID = @CustomerID";
-
-
-
-
+        internal const string getAllOrders = "select * from Orders";
+        internal const string findSingleOrder = @"
+select * from Orders
+where OrderID = @OrderID";
+        /// <summary>
+        /// with select @@IDENTITY returns OrderID
+        /// </summary>
+        internal const string addOrder = @"
+INSERT INTO [dbo].[Orders]
+           (
+            [CustomerID],[EmployeeID],[OrderDate],[RequiredDate],[ShippedDate],[ShipVia],[Freight]
+           ,[ShipName],[ShipAddress],[ShipCity],[ShipRegion],[ShipPostalCode],[ShipCountry])
+     VALUES
+           (
+            @CustomerID,@EmployeeID,@OrderDate,@RequiredDate,@ShippedDate,@ShipVia,@Freight,
+            @ShipName,@ShipAddress,@ShipCity,@ShipRegion,@ShipPostalCode,@ShipCountry
+            )
+            select @@IDENTITY
+";
+        internal const string addOrderDetail = @"
+INSERT INTO [dbo].[Order Details]
+            (
+            [OrderID],[ProductID],[UnitPrice],[Quantity],[Discount]
+            )
+     VALUES
+            (
+            @OrderID,@ProductID,@UnitPrice,@Quantity,@Discount
+            )
+";
+        internal const string updateOrder = @"
+UPDATE [dbo].[Orders]
+SET [CustomerID] = @CustomerID,
+    [EmployeeID] = @EmployeeID,
+    [OrderDate] = @OrderDate,
+    [RequiredDate] = @RequiredDate,
+    [ShippedDate] = @ShippedDate,
+    [ShipVia] = @ShipperID,
+    [Freight] = @Freight,
+    [ShipName] = @ShipName,
+    [ShipAddress] = @ShipAddress,
+    [ShipCity] = @ShipCity,
+    [ShipRegion] = @ShipRegion,
+    [ShipPostalCode] = @ShipPostalCode,
+    [ShipCountry] = @ShipCountry
+WHERE OrderID = @OrderID";
+        internal const string removeOrder = "delete Orders where OrderID = @OrderID";
     }
 }
