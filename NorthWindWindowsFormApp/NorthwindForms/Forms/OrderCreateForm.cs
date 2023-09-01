@@ -1,4 +1,5 @@
-﻿using NorthwindProject.DataAccess;
+﻿using Northwind.Forms.ViewModels;
+using NorthwindProject.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Northwind.Forms.Forms
         private readonly CustomerRepository _customerRepository = new CustomerRepository();
         private readonly EmployeeRepository _employeeRepository = new EmployeeRepository();
         private readonly ShipperRepository _shipperRepository = new ShipperRepository();
+        private List<OrderDetailInputModel> _orderDetailsList = new List<OrderDetailInputModel>();
         public OrderCreateForm()
         {
             InitializeComponent();
@@ -58,7 +60,40 @@ namespace Northwind.Forms.Forms
         private void OrderCreatebtn_Click(object sender, EventArgs e)
         {
             var orderDetailEditForm = new OrderDetailEditForm();
+            orderDetailEditForm.OrderDetailCreated += OrderDetail_OrderDetailCreated;
             orderDetailEditForm.ShowDialog();
+        }
+
+        private void OrderDetail_OrderDetailCreated(OrderDetailInputModel orderDetailInput)
+        {
+            if (orderDetailInput != null)
+            {
+                // _orderDetailsList.Add(orderDetailInput);
+                if (_orderDetailsList.Count != 0)
+                {
+                    SearchSameProductItem(orderDetailInput);
+                }
+                else
+                {
+                    _orderDetailsList.Add(orderDetailInput);
+                }
+            }
+
+            gridOrderDetails.DataSource = null;
+            gridOrderDetails.DataSource = _orderDetailsList;
+        }
+        private void SearchSameProductItem(OrderDetailInputModel orderDetailInput)
+        {
+            var collection = _orderDetailsList.SingleOrDefault(item => item.ProductID == orderDetailInput.ProductID);
+            if (collection != null)
+            {
+                _orderDetailsList.First(item => item.ProductID == orderDetailInput.ProductID)
+                    .Quantity += orderDetailInput.Quantity;
+            }
+            else
+            {
+                _orderDetailsList.Add(orderDetailInput);
+            }
         }
     }
 }

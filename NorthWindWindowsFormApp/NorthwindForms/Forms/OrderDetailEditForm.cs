@@ -1,4 +1,5 @@
-﻿using NorthwindProject.DataAccess;
+﻿using Northwind.Forms.ViewModels;
+using NorthwindProject.DataAccess;
 using NorthwindProject.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace Northwind.Forms.Forms
     public partial class OrderDetailEditForm : Form
     {
         private readonly ProductRepository _productRepository = new ProductRepository();
+
+        public delegate void OrderDetailCreatedHandler(OrderDetailInputModel orderDetailInput);
+        public event OrderDetailCreatedHandler OrderDetailCreated;
         public OrderDetailEditForm()
         {
             InitializeComponent();
@@ -48,8 +52,14 @@ namespace Northwind.Forms.Forms
 
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
-            
+            var orderDetailInput = new OrderDetailInputModel();
+            orderDetailInput.ProductID = (int)cmbProducts.SelectedValue;
+            orderDetailInput.ProductName = cmbProducts.Text;
+            orderDetailInput.UnitPrice = decimal.TryParse(txtPrice.Text,out decimal price) ? price : default;
+            orderDetailInput.Quantity = (short)numQuantity.Value;
+            orderDetailInput.Discount = (float)numDiscount.Value / 100;
 
+            OrderDetailCreated?.Invoke(orderDetailInput);
         }
     }
 }
