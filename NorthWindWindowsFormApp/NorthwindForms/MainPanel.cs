@@ -98,5 +98,12 @@ namespace NorthwindForms
             customerListForm.MdiParent = this;
             customerListForm.Show();
         }
+
+        private void newOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var orderCreateForm = new OrderCreateForm();
+            orderCreateForm.MdiParent = this;
+            orderCreateForm.Show();
+        }
     }
 }
