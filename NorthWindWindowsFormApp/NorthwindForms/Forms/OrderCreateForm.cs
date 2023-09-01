@@ -1,5 +1,6 @@
 ﻿using Northwind.Forms.ViewModels;
 using NorthwindProject.DataAccess;
+using NorthwindProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Northwind.Forms.Forms
         private readonly CustomerRepository _customerRepository = new CustomerRepository();
         private readonly EmployeeRepository _employeeRepository = new EmployeeRepository();
         private readonly ShipperRepository _shipperRepository = new ShipperRepository();
+        private readonly OrderRepository _orderRepository = new OrderRepository();
         private List<OrderDetailInputModel> _orderDetailsList = new List<OrderDetailInputModel>();
         public OrderCreateForm()
         {
@@ -98,7 +100,51 @@ namespace Northwind.Forms.Forms
 
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
+            var order = new Order();
+            //Input
+            {
+                order.CustomerID = (string)cmbCustomer.SelectedValue;
+                order.EmployeeID = (int?)cmbEmployee.SelectedValue;
+                order.OrderDate = dtpOrderDate.Value;
+                order.ShippedDate = dtpShippedDate.Value;
+                order.RequiredDate = dtpRequiredDate.Value;
+                order.ShipVia = (int?)cmbShipper.SelectedValue;
+                order.Freight = numFreight.Value;
+                order.ShipName = !string.IsNullOrWhiteSpace(txtShipName.Text) ? txtShipName.Text : null;
+                order.ShipAddress = !string.IsNullOrWhiteSpace(txtShipAddress.Text) ? txtShipAddress.Text : null;
+                order.ShipCity = !string.IsNullOrWhiteSpace(txtShipCity.Text) ? txtShipCity.Text : null; ;
+                order.ShipCountry = !string.IsNullOrWhiteSpace(txtShipCountry.Text) ? txtShipCountry.Text : null; ;
+                order.ShipRegion = !string.IsNullOrWhiteSpace(txtShipRegion.Text) ? txtShipRegion.Text : null; ;
+                order.ShipPostalCode = !string.IsNullOrWhiteSpace(txtShipPostalCode.Text) ? txtShipPostalCode.Text : null; ;
+            }
+            foreach (var detailInput in _orderDetailsList)
+            {
+                // Her adımda OrderDetailInputModel tipinde olan nesneyi
+                // OrderDetail entity nesnesine Maplemem lazım
 
+                var orderDetail = new OrderDetail()
+                {
+                    ProductID = detailInput.ProductID,
+                    UnitPrice = detailInput.UnitPrice,
+                    Quantity = detailInput.Quantity,
+                    Discount = detailInput.Discount,
+                };
+
+
+                order.OrderDetails.Add(orderDetail);
+
+            }
+            var result = _orderRepository.Add(order);
+
+            if (result)
+            {
+                MessageBox.Show("Sipariş Başarıyla Oluşturuldu");
+
+            }
+            else
+            {
+                MessageBox.Show("Sipariş Oluşturulamadı");
+            }
         }
     }
 }
