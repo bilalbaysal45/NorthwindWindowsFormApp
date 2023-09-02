@@ -32,7 +32,6 @@
             dataGridOrder = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             updateToolStripMenuItem = new ToolStripMenuItem();
-            removeToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridOrder).BeginInit();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -58,22 +57,16 @@
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { updateToolStripMenuItem, removeToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { updateToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(211, 80);
+            contextMenuStrip1.Size = new Size(128, 28);
             // 
             // updateToolStripMenuItem
             // 
             updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            updateToolStripMenuItem.Size = new Size(210, 24);
+            updateToolStripMenuItem.Size = new Size(127, 24);
             updateToolStripMenuItem.Text = "Update";
             updateToolStripMenuItem.Click += updateToolStripMenuItem_Click;
-            // 
-            // removeToolStripMenuItem
-            // 
-            removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(210, 24);
-            removeToolStripMenuItem.Text = "Remove";
             // 
             // OrderListForm
             // 
@@ -94,6 +87,5 @@
         private DataGridView dataGridOrder;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem updateToolStripMenuItem;
-        private ToolStripMenuItem removeToolStripMenuItem;
     }
 }

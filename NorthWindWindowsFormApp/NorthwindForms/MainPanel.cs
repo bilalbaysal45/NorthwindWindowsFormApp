@@ -112,5 +112,12 @@ namespace NorthwindForms
             ordersListForm.MdiParent = this;
             ordersListForm.Show();
         }
+
+        private void criticalStockListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var productCriticalStockForm = new ProductCriticalStockForm();
+            productCriticalStockForm.MdiParent = this;
+            productCriticalStockForm.Show();
+        }
     }
 }

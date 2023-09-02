@@ -139,11 +139,24 @@ namespace Northwind.Forms.Forms
             if (result)
             {
                 MessageBox.Show("Sipariş Başarıyla Oluşturuldu");
+                RefreshOrderListForm();
 
             }
             else
             {
                 MessageBox.Show("Sipariş Oluşturulamadı");
+            }
+        }
+
+        private void RefreshOrderListForm()
+        {
+            foreach (var form in MdiParent.MdiChildren)
+            {
+                if (form is OrderListForm)
+                {
+                    var orderListForm = form as OrderListForm;
+                    orderListForm?.RefreshOrderList();
+                }
             }
         }
     }

@@ -22,6 +22,12 @@ namespace Northwind.Forms.Forms
 
         private void OrderListForm_Load(object sender, EventArgs e)
         {
+            RefreshOrderList();
+        }
+
+        public void RefreshOrderList()
+        {
+            dataGridOrder.DataSource = null;
             dataGridOrder.DataSource = _orderRepository.GetAll();
         }
 

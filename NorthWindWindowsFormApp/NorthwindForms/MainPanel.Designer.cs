@@ -50,6 +50,7 @@
             ordersToolStripMenuItem = new ToolStripMenuItem();
             newOrderToolStripMenuItem = new ToolStripMenuItem();
             orderListToolStripMenuItem = new ToolStripMenuItem();
+            criticalStockListToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -128,7 +129,7 @@
             // 
             // productManagementToolStripMenuItem
             // 
-            productManagementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newProductToolStripMenuItem, productListToolStripMenuItem });
+            productManagementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newProductToolStripMenuItem, productListToolStripMenuItem, criticalStockListToolStripMenuItem });
             productManagementToolStripMenuItem.Name = "productManagementToolStripMenuItem";
             productManagementToolStripMenuItem.Size = new Size(166, 24);
             productManagementToolStripMenuItem.Text = "Product Management";
@@ -136,14 +137,14 @@
             // newProductToolStripMenuItem
             // 
             newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
-            newProductToolStripMenuItem.Size = new Size(177, 26);
+            newProductToolStripMenuItem.Size = new Size(224, 26);
             newProductToolStripMenuItem.Text = "New Product";
             newProductToolStripMenuItem.Click += newProductToolStripMenuItem_Click;
             // 
             // productListToolStripMenuItem
             // 
             productListToolStripMenuItem.Name = "productListToolStripMenuItem";
-            productListToolStripMenuItem.Size = new Size(177, 26);
+            productListToolStripMenuItem.Size = new Size(224, 26);
             productListToolStripMenuItem.Text = "Product List";
             productListToolStripMenuItem.Click += productListToolStripMenuItem_Click;
             // 
@@ -178,14 +179,14 @@
             // newCustomerToolStripMenuItem
             // 
             newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
-            newCustomerToolStripMenuItem.Size = new Size(224, 26);
+            newCustomerToolStripMenuItem.Size = new Size(189, 26);
             newCustomerToolStripMenuItem.Text = "New Customer";
             newCustomerToolStripMenuItem.Click += newCustomerToolStripMenuItem_Click;
             // 
             // customerListToolStripMenuItem
             // 
             customerListToolStripMenuItem.Name = "customerListToolStripMenuItem";
-            customerListToolStripMenuItem.Size = new Size(224, 26);
+            customerListToolStripMenuItem.Size = new Size(189, 26);
             customerListToolStripMenuItem.Text = "Customer List";
             customerListToolStripMenuItem.Click += customerListToolStripMenuItem_Click;
             // 
@@ -199,16 +200,23 @@
             // newOrderToolStripMenuItem
             // 
             newOrderToolStripMenuItem.Name = "newOrderToolStripMenuItem";
-            newOrderToolStripMenuItem.Size = new Size(224, 26);
+            newOrderToolStripMenuItem.Size = new Size(164, 26);
             newOrderToolStripMenuItem.Text = "New Order";
             newOrderToolStripMenuItem.Click += newOrderToolStripMenuItem_Click;
             // 
             // orderListToolStripMenuItem
             // 
             orderListToolStripMenuItem.Name = "orderListToolStripMenuItem";
-            orderListToolStripMenuItem.Size = new Size(224, 26);
+            orderListToolStripMenuItem.Size = new Size(164, 26);
             orderListToolStripMenuItem.Text = "Order List";
             orderListToolStripMenuItem.Click += orderListToolStripMenuItem_Click;
+            // 
+            // criticalStockListToolStripMenuItem
+            // 
+            criticalStockListToolStripMenuItem.Name = "criticalStockListToolStripMenuItem";
+            criticalStockListToolStripMenuItem.Size = new Size(224, 26);
+            criticalStockListToolStripMenuItem.Text = "Critical Stock List";
+            criticalStockListToolStripMenuItem.Click += criticalStockListToolStripMenuItem_Click;
             // 
             // MainPanel
             // 
@@ -251,5 +259,6 @@
         private ToolStripMenuItem ordersToolStripMenuItem;
         private ToolStripMenuItem newOrderToolStripMenuItem;
         private ToolStripMenuItem orderListToolStripMenuItem;
+        private ToolStripMenuItem criticalStockListToolStripMenuItem;
     }
 }

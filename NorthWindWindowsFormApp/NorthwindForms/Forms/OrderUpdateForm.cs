@@ -88,10 +88,23 @@ namespace Northwind.Forms.Forms
             if (result)
             {
                 MessageBox.Show("Update is Successfull");
+                RefreshOrderListGrid();
             }
             else
             {
                 MessageBox.Show("Error");
+            }
+        }
+
+        private void RefreshOrderListGrid()
+        {
+            foreach (var form in MdiParent.MdiChildren)
+            {
+                if (form is OrderListForm)
+                {
+                    var orderListForm = form as OrderListForm;
+                    orderListForm?.RefreshOrderList();
+                }
             }
         }
 
