@@ -38,16 +38,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(559, 11);
+            label2.Location = new Point(12, 16);
             label2.Name = "label2";
-            label2.Size = new Size(293, 20);
+            label2.Size = new Size(79, 20);
             label2.TabIndex = 7;
-            label2.Text = "Critical and Products That Not Ordered Yet:";
+            label2.Text = "Low Stock:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 11);
+            label1.Location = new Point(559, 16);
             label1.Name = "label1";
             label1.Size = new Size(98, 20);
             label1.TabIndex = 6;
